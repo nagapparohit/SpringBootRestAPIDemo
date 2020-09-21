@@ -2,6 +2,7 @@ package com.spirngboot.basics.springboot10steps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 /**
  * 
  * @author 91783
@@ -13,7 +14,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Springboot10StepsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Springboot10StepsApplication.class, args);
+		ApplicationContext applicationContext = SpringApplication.run(Springboot10StepsApplication.class, args);
+		
+		for(String name:applicationContext.getBeanDefinitionNames()) {
+			System.out.println("***********************************");
+			System.out.println(name);
+			System.out.println("***********************************");
+		}
 	}
 
 }
